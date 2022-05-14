@@ -1,0 +1,41 @@
+{
+    "name": "soft-house/monitoring-service",
+    "type": "library",
+    "keywords": ["laravel", "monitoring", "debugging"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SoftHouse\\MonitoringService\\": "src/"
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "mastersofthouse",
+            "email": "contato@mastersofthouse.com.br"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "laravel/framework": "^8.37|^9.0",
+        "symfony/var-dumper": "^5.0|^6.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "SoftHouse\\MonitoringService\\MonitoringServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
