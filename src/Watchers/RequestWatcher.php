@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\Events\RequestHandled;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use SoftHouse\MonitoringService\Context\RequestContext;
 use SoftHouse\MonitoringService\Entry\IncomingEntryRequest;
 use SoftHouse\MonitoringService\Monitoring;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +32,8 @@ class RequestWatcher
         $startTime = defined('LARAVEL_START') ? LARAVEL_START : $event->request->server('REQUEST_TIME_FLOAT');
 
         Monitoring::recordRequest(IncomingEntryRequest::make([
-            'ip_address' => $event->request->ip(),
+            'ip_address' => RequestContext::getIP(),
+            'ip_address_info' => RequestContext::getInfoIP(),
             'uri' => str_replace($event->request->root(), '', $event->request->fullUrl()) ?: '/',
             'method' => $event->request->method(),
             'controller_action' => optional($event->request->route())->getActionName(),
