@@ -27,23 +27,23 @@ use SoftHouse\MonitoringService\Watchers\ScheduleWatcher;
 
 class Monitoring
 {
-    public static $isCommandRecord = true;
+    public static $isCommandRecord = false;
 
-    public static $isEventRecord = true;
+    public static $isEventRecord = false;
 
-    public static $isExceptionRecord = true;
+    public static $isExceptionRecord = false;
 
-    public static $isGatesRecord = true;
+    public static $isGatesRecord = false;
 
-    public static $isQueueRecord = true;
+    public static $isQueueRecord = false;
 
-    public static $isRequestRecord = true;
+    public static $isRequestRecord = false;
 
-    public static $isScheduleRecord = true;
+    public static $isScheduleRecord = false;
 
     public static $ignoreFrameworkEvents = true;
 
-    public static $shouldIgnoreCommands = ['schedule:run', 'schedule:finish', 'package:discover'];
+    public static $shouldIgnoreCommands = ['schedule:run', 'schedule:finish', 'package:discover', 'vendor:publish'];
 
     public static $eventsFramework = ['Illuminate\*', 'Laravel\Octane\*', 'eloquent*', 'bootstrapped*', 'bootstrapping*', 'creating*', 'composing*'];
 
@@ -51,7 +51,7 @@ class Monitoring
 
     public static $shouldIgnoreRequest = ['/telescope*', '/websockets*'];
 
-    public static $shouldIgnoreSchedule = ['schedule:run', 'schedule:finish'];
+    public static $shouldIgnoreSchedule = ['schedule:run', 'schedule:finish', 'vendor:publish'];
 
     public static $hiddenRequestHeaders = [
         'authorization',
